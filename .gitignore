@@ -1,0 +1,55 @@
+# ========================
+# Global
+# ========================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# ========================
+# Node.js (React frontend)
+# ========================
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env
+frontend/.parcel-cache/
+frontend/.turbo/
+frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Vite / CRA (create-react-app)
+frontend/.eslintcache
+frontend/.cache/
+
+# VSCode settings (optional)
+frontend/.vscode/
+
+# ========================
+# Java / Spring Boot backend
+# ========================
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.metadata/
+backend/.gradle/
+backend/build/
+backend/bin/
+backend/out/
+
+# IntelliJ
+backend/*.iml
+backend/.idea/
+
+# Gradle Wrapper logs and files
+backend/gradle-app.setting
+backend/gradle-debug.log
+backend/gradlew.bat~
+backend/gradlew~
+
+# Sensitive config
+backend/src/main/resources/application-secret.properties
+backend/src/main/resources/application-local.properties
+backend/src/main/resources/application-dev.properties
