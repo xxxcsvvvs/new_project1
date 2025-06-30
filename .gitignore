@@ -53,3 +53,4 @@ backend/gradlew~
 backend/src/main/resources/application-secret.properties
 backend/src/main/resources/application-local.properties
 backend/src/main/resources/application-dev.properties
+backend/src/main/resources/application.properties
