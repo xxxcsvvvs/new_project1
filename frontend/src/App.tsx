@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
+import RedisTester from './components/RedisTester.tsx';
 
 function App() {
   const [memberId, setMemberId] = useState('');
@@ -34,41 +35,49 @@ function App() {
   };
 
   return (
-    <div className="p-8 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-4">회원가입 폼</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="아이디"
-          value={memberId}
-          onChange={(e) => setMemberId(e.target.value)}
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
-        <input
-          type="password"
-          placeholder="비밀번호"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
-        <input
-          type="text"
-          placeholder="주소"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">
-          전송
-        </button>
-      </form>
+    <div>
+      <div className="App">
+        <h1>🔧 Redis 테스트 UI</h1>
+        <RedisTester />
+      </div>
 
-      {responseMessage && (
-        <p className="mt-6 text-green-500 font-medium">{responseMessage}</p>
-      )}
+
+      <div className="p-8 max-w-md mx-auto">
+        <h1 className="text-2xl font-bold mb-4">회원가입 폼</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            placeholder="아이디"
+            value={memberId}
+            onChange={(e) => setMemberId(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
+            required
+          />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
+            required
+          />
+          <input
+            type="text"
+            placeholder="주소"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
+            required
+          />
+          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">
+            전송
+          </button>
+        </form>
+
+        {responseMessage && (
+          <p className="mt-6 text-green-500 font-medium">{responseMessage}</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,36 +1,33 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.RedisService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/redis")
 public class RedisTestController {
 
-    private final RedisService redisService;
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
-    public RedisTestController(RedisService redisService) {
-        this.redisService = redisService;
-    }
-
-    // 저장
     @PostMapping("/save")
-    public String save(@RequestParam String key, @RequestParam String value) {
-        redisService.save(key, value);
-        return "✅ 저장 완료: " + key + " = " + value;
+    public String saveData(@RequestParam("key") String key, @RequestParam("value") String value) {
+        redisTemplate.opsForValue().set(key, value);
+        return "✅ 저장 성공";
     }
 
-    // 조회
     @GetMapping("/get")
-    public Object get(@RequestParam String key) {
-        Object value = redisService.get(key);
-        return value != null ? value : "❌ 데이터 없음";
+    public String getData(@RequestParam("key") String key) {
+        String value = redisTemplate.opsForValue().get(key);
+        return value != null ? value : "값이 없습니다.";
     }
 
-    // 삭제
     @DeleteMapping("/delete")
-    public String delete(@RequestParam String key) {
-        redisService.delete(key);
-        return "🗑️ 삭제 완료: " + key;
+    public String deleteData(@RequestParam("key") String key) {
+        Boolean deleted = redisTemplate.delete(key);
+        return Boolean.TRUE.equals(deleted) ? "🗑️ 삭제 성공" : "삭제 실패";
     }
 }
