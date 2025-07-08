@@ -3,6 +3,6 @@
 ##폴더 구조 설명
 
 ### backend/
-
+images/backend.png
 ### frontend/
-
+images/frontend.png
