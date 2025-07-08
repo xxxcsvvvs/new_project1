@@ -3,6 +3,6 @@
 ##폴더 구조 설명
 
 ### backend/
-images/backend.png
+![백엔드 구조](./images/backend.png)
 ### frontend/
-images/frontend.png
+![프론트엔드 구조](./images/frontend.png)
